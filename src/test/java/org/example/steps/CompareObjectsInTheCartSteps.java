@@ -24,7 +24,7 @@ public class CompareObjectsInTheCartSteps {
     private List<String> list;
 
     @When("User reads property by {int} and compare with created model")
-    public void userReadsPropertyByAndCompareWithCreatedModel(int key) {
+    public void compareModelFromPropertyWithActualModel(int key) {
         list = ReadDataFromFile.getDataFromProperties(String.valueOf(key));
         PhoneProduct expectedPhone = new PhoneProduct(list);
         resultPageService = startedPageService.fillSearchField(expectedPhone.getName());

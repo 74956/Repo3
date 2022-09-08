@@ -13,7 +13,7 @@ public class UserLogInStep {
     private StartedPageService startedPageService = new StartedPageService();
 
     @Given("User is log in")
-    public void userIsLogIn() {
+    public void logIn() {
         User user = userService.credentials();
         loginPageService = startedPageService.clickOnSignInMenu();
         loginPageService.logIn(user);

@@ -3,8 +3,8 @@ Feature: check year filter and See more button
 
   Background:
     Given User is log in
-    When User is searching for "iphone"
-    When User clicks search button
+    When User search for "iphone"
+    When he clicks search button
     And User checks that list of elements is not empty
     And User checks that cart has 0 items inside
     And Users clicks on filter "Price: High to Low"

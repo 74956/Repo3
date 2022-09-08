@@ -3,10 +3,10 @@ Feature: Want to check filter in result page and if cart is empty in the beginni
 
   Background:
     Given User is log in
+    When User search for "iphone"
+    When he clicks search button
 
   Scenario: check products
-    When User is searching for "iphone"
-    When User clicks search button
     And User checks that list of elements is not empty
     And User checks that cart has 0 items inside
     And Users clicks on filter "Price: High to Low"

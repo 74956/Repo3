@@ -1,12 +1,8 @@
 package org.example.steps;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
-import org.example.service.CartPageService;
 import org.example.service.ProductPageService;
 import org.example.service.ResultPageService;
-import org.example.service.ShoppingCartPageService;
-import org.example.service.StartedPageService;
 import org.example.util.CommonMethodsForList;
 import org.hamcrest.Matchers;
 
@@ -20,39 +16,26 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CheckFilterWorkSteps {
 
-    private StartedPageService startedPageService = new StartedPageService();
     private ResultPageService resultPageService = new ResultPageService();
     private ProductPageService productPageService = new ProductPageService();
-    private CartPageService cartPageService = new CartPageService();
-    private ShoppingCartPageService shoppingCartPageService = new ShoppingCartPageService();
-
-    @When("User is searching for {string}")
-    public void userIsSearchingFor(String product) {
-        startedPageService.fillSearchField(product);
-    }
-
-    @When("User clicks search button")
-    public void userClicksSearchButton() {
-        resultPageService.clickOnSearchButton();
-    }
 
     @And("User checks that list of elements is not empty")
-    public void userChecksThatListOfElementsIsNotEmpty() {
+    public void isListOfElementsNotEmpty() {
         assertThat("List of items is empty", !resultPageService.isListEmpty());
     }
 
     @And("User checks that cart has {int} items inside")
-    public void userChecksThatCartHasItemsInside(int itemQuantity) {
+    public void isCartHasItemsInside(int itemQuantity) {
         assertThat("Cart is not empty by default", productPageService.getQuantityOfItemsInTheCart(), Matchers.equalTo(itemQuantity));
     }
 
     @And("Users clicks on filter {string}")
-    public void usersClicksOnFilter(String priceFilter) {
+    public void clickOnFilter(String priceFilter) {
         resultPageService.clickOnDropdownWithFilter(priceFilter);
     }
 
     @And("User checks price sort from High to low prices")
-    public void userChecksPriceSortFromHighToLowPrices() {
+    public void checkPriceSortFromHighToLowPrices() {
         List<Integer> actualResultProductList = resultPageService.listOfProductPrice();
         List<Integer> newList = new ArrayList<>(actualResultProductList);
         List<Integer> sortedNaturalOrderList = newList.stream().sorted(Integer::compareTo).collect(Collectors.toList());
@@ -61,19 +44,19 @@ public class CheckFilterWorkSteps {
     }
 
     @And("User checks visibility of {string} button")
-    public void userChecksVisibilityOfButton(String buttonName) {
+    public void checkVisibilityOfButton(String buttonName) {
         assertThat("The 'See more' button isn`t displayed", resultPageService.isButtonDisplayedInTheYearFilter(buttonName));
     }
 
     @And("User checks filter of OS with value {string} and check name contains {string}")
-    public void userChecksFilterOfOSWithValueAndCheckNameContains(String os, String compareValue) {
+    public void checkFilterOfOSWithValueAndSearchingNameContain(String os, String compareValue) {
         resultPageService.clickOnFilterInput(os);
         List<String> listOfResult = resultPageService.getListOfItemsNames();
         assertThat("List of items not contain iOS product", CommonMethodsForList.isListContainsString(listOfResult, compareValue));
     }
 
     @And("User checks visibility of list of options name")
-    public void userChecksVisibilityOfListOfOptionsName() {
+    public void isOptionsNameDisplayed() {
         List<String> actualListOfOptionsNames = resultPageService.getListOfOptionsNameFromFilter();
         List<String> expectedListOfOptionsNames = Arrays.asList("Condition", "Climate Pledge Friendly", "Department",
                 "Customer Reviews", "Brand", "Cell Phone Price", "Cell Phone Carrier", "Electronics Device Model Year",
