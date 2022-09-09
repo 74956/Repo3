@@ -19,59 +19,59 @@ public class AddItemToCartSteps {
     private CartPageService cartPageService = new CartPageService();
     private ShoppingCartPageService shoppingCartPageService = new ShoppingCartPageService();
 
-    @When("User search for {string}")
+    @When("I search for {string}")
     public void searchProduct(String product) {
         startedPageService.fillSearchField(product);
     }
 
-    @When("he clicks search button")
+    @When("I click search button")
     public void clickOnSearchButton() {
         resultPageService.clickOnSearchButton();
     }
 
-    @When("click on the first phone that appears in the search result")
+    @When("I click on the first phone that appears in the search result")
     public void clickOnTheFirstPhoneThatAppearsInTheSearchResult() {
         resultPageService.clickOnFirstElementInListOfItems();
     }
 
-    @When("he clicks on Add to cart button")
+    @When("I click on Add to cart button")
     public void clickOnAddToCartButton() {
         productPageService.clickAddCartButton();
     }
 
-    @Then("product image is displayed")
+    @Then("I see the product image")
     public void isProductImageIsDisplayed() {
         assertThat("The image of added item is displayed", cartPageService.isProductImageDisplayed());
     }
 
-    @Then("check msg {string} is exist")
+    @Then("I see the msg {string}")
     public void isMsgAddedToCartDisplayed(String msg) {
         assertThat("Check added msg", cartPageService.getMsgText(), Matchers.equalTo(msg));
     }
 
-    @Then("check the color of added icon is {string}")
+    @Then("I see the color of added icon is {string}")
     public void checkTheColorOfProductIconAfterAddingToTheCart(String color) {
         assertThat("Color is not green", cartPageService.getColor(), Matchers.equalTo(color));
     }
 
-    @Then("check that cart has {int} item inside")
+    @Then("I see the cart has {int} item inside")
     public void checkThatCartHasOneItemInside(int itemQuantity) {
         assertThat("Cart is empty or has more than 1 item", productPageService.getQuantityOfItemsInTheCart(),
                 Matchers.equalTo(itemQuantity));
     }
 
-    @Then("check that {string} is displayed")
+    @Then("I see the {string} is displayed")
     public void isShoppingCartDisplayed(String title) {
         cartPageService.clickOnGoToCartButton();
         assertThat("Shopping cart isn`t displayed", shoppingCartPageService.isShoppingCartDisplayed(title));
     }
 
-    @Then("check that cart is not empty")
+    @Then("I see that cart is not empty")
     public void isCartNotEmpty() {
         assertThat("Shopping cart is empty", !shoppingCartPageService.isListOfElementsInTheShoppingCartEmpty());
     }
 
-    @Then("delete item from cart")
+    @Then("I delete item from cart")
     public void deleteItemFromCart() {
         startedPageService.clickOnCartButton();
         shoppingCartPageService.clickOnDeleteButton();

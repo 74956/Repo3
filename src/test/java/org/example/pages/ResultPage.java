@@ -18,7 +18,7 @@ public class ResultPage extends BasePage {
     }
 
     public WebElement getDropdownWithFilter() {
-        return driver.findElement(By.xpath("//select[@id='s-result-sort-select']"));
+        return driver.findElement(By.xpath("//span[@class='a-button-text a-declarative']"));
     }
 
     public List<WebElement> getProductPrice() {
@@ -68,13 +68,9 @@ public class ResultPage extends BasePage {
         driver.findElement(By.xpath(String.format(filterInputButton, inputName))).click();
     }
 
-    public WebElement clickOnClearButton(){
-        return driver.findElement(By.xpath("//a[contains(@class,'s-navigation-clear-link')]/span[2]"));
-    }
-
     public void clickOnDropdownWithFilter(String fieldText) {
-        Select selectListBoxOption = new Select(getDropdownWithFilter());
-        selectListBoxOption.selectByVisibleText(fieldText);
+        String choseFilterOption = "//div[@data-action='a-popover-a11y']//ul[@class='a-nostyle a-list-link']/li/a[text()='%s']";
+        driver.findElement(By.xpath(String.format(choseFilterOption, fieldText))).click();
     }
 
     public List<Integer> getListOfProductPrices() {
@@ -97,5 +93,9 @@ public class ResultPage extends BasePage {
 
     public List<String> getListOfItemsNames() {
         return CommonMethodsForList.getItemsNamesText(getListOfItemsName());
+    }
+
+    public void clickOnDropdownPriceFilter() {
+        getDropdownWithFilter().click();
     }
 }

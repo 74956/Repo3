@@ -10,9 +10,9 @@ import java.util.stream.Stream;
 
 public class ReadDataFromFile {
 
-    public static List<String> getDataFromProperties(String key)  {
+    public static List<String> getDataFromProperties(String key) {
         BufferedReader reader;
-        List<String> productValuesList =null;
+        List<String> productValuesList = null;
         try {
             reader = new BufferedReader(new FileReader("src/test/resources/product.properties"));
             Properties properties = new Properties();

@@ -10,7 +10,7 @@ public class AuthorizationSteps {
 
     private StartedPageService startedPageService = new StartedPageService();
 
-    @Then("User see on the started page greeting text {string}")
+    @Then("I see on the started page greeting text {string}")
     public void checkGreetingMsgOnTheStartedPageText(String greetingText) {
         assertThat(startedPageService.getAccountGreetingText(), Matchers.equalTo(greetingText));
     }

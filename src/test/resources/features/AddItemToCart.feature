@@ -2,17 +2,17 @@
 Feature: I want to check adding product to shopping cart
 
   Background:
-    Given User is log in
+    Given I log in
 
   Scenario: check product image
-    When User search for "iphone"
-    When he clicks search button
-    And click on the first phone that appears in the search result
-    And he clicks on Add to cart button
-    Then product image is displayed
-    Then check msg "Added to Cart" is exist
-    Then check the color of added icon is "rgba(6, 125, 98, 1)"
-    Then check that cart has 1 item inside
-    Then check that "Shopping Cart" is displayed
-    Then check that cart is not empty
-    Then delete item from cart
+    When I search for "iphone"
+    When I click search button
+    And I click on the first phone that appears in the search result
+    And I click on Add to cart button
+    Then I see the product image
+    Then I see the msg "Added to Cart"
+    Then I see the color of added icon is "rgba(6, 125, 98, 1)"
+    Then I see the cart has 1 item inside
+    Then I see the "Shopping Cart" is displayed
+    Then I see that cart is not empty
+    Then I delete item from cart

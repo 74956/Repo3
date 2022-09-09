@@ -2,10 +2,10 @@
 Feature: Compare actual object with expected
 
   Background:
-    Given User is log in
+    Given I log in
 
   Scenario Outline:
-    When User reads property by <Key> and compare with created model
+    When I read property file by key <Key> and compare with created model
     Examples:
       | Key |
       | 3   |

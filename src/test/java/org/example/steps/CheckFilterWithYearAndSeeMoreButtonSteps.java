@@ -9,7 +9,7 @@ public class CheckFilterWithYearAndSeeMoreButtonSteps {
 
     private ResultPageService resultPageService = new ResultPageService();
 
-    @Then("User checks if {string} button still displayed after using filter with {string}")
+    @Then("I see {string} button still displayed after using filter with {string}")
     public void isSeeMoreButtonDisplayed(String buttonName, String year) {
         resultPageService.clickOnFilterInput(year);
         resultPageService.clickOnRandomColor();

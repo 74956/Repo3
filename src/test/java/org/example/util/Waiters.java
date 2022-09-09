@@ -25,7 +25,7 @@ public class Waiters {
         return wait.until(ExpectedConditions.visibilityOfAllElements(list));
     }
 
-    public WebElement fluentWaitVisibilityOfElement(WebElement element){
+    public WebElement fluentWaitVisibilityOfElement(WebElement element) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(6))
                 .pollingEvery(Duration.ofSeconds(2))
