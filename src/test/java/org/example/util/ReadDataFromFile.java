@@ -10,11 +10,11 @@ import java.util.stream.Stream;
 
 public class ReadDataFromFile {
 
-    public static List<String> getDataFromProperties(String key) {
+    public static List<String> getDataFromProperties(String path, String key) {
         BufferedReader reader;
         List<String> productValuesList = null;
         try {
-            reader = new BufferedReader(new FileReader("src/test/resources/product.properties"));
+            reader = new BufferedReader(new FileReader(path));
             Properties properties = new Properties();
             properties.load(reader);
             String productValuesLine = properties.getProperty(key);

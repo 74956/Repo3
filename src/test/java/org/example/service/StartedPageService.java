@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.pages.StartedPage;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class StartedPageService extends BasePageService {
@@ -35,5 +36,11 @@ public class StartedPageService extends BasePageService {
         log.info("Click on Cart button");
         startedPage.clickOnCartButton();
         return new ShoppingCartPageService();
+    }
+
+    public List<String> getListOfFooterOptionsByName(String columnName) {
+        List<String> options = startedPage.getListOfFooterOptionsByName(columnName);
+        log.info("Get option names - " + options);
+        return options;
     }
 }

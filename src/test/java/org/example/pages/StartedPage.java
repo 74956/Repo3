@@ -1,8 +1,12 @@
 package org.example.pages;
 
+import org.example.util.CommonMethodsForList;
 import org.example.util.GetProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StartedPage extends BasePage {
 
@@ -27,6 +31,10 @@ public class StartedPage extends BasePage {
         return this;
     }
 
+    public List<WebElement> getFooterOptionsByMainName(String mainName) {
+        return driver.findElements(By.xpath(String.format("//div[@class='navFooterColHead' and text()='%s']/parent::div/ul/li", mainName)));
+    }
+
     public void clickOnSignInMenu() {
         waiters.fluentWaitVisibilityOfElement(getSignInMenu()).click();
     }
@@ -43,5 +51,10 @@ public class StartedPage extends BasePage {
 
     public void clickOnCartButton() {
         getCartButton().click();
+    }
+
+    public List<String> getListOfFooterOptionsByName(String columnName) {
+        List<String> list = CommonMethodsForList.getItemsNamesText(getFooterOptionsByMainName(columnName));
+        return list.stream().map(el -> el.replaceAll("›", "")).collect(Collectors.toList());
     }
 }
