@@ -9,16 +9,16 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class CheckFooterOptionsUsingMainNameSteps {
+public class CheckNamesOfShopContainerSteps {
 
     private StartedPageService startedPageService = new StartedPageService();
     private List<String> expectedListOfOptions;
     private List<String> actualListOfOptions;
 
-    @Then("I see footer options with {string} and compare them with data from file with {string}")
-    public void checkListOfFooterColumnOptions(String columnName, String propertyKey) {
+    @Then("I check list of actual button names with expected read from file by {string}")
+    public void checkButtonsName(String propertyKey) {
         expectedListOfOptions = ReadDataFromFile.getDataFromProperties("src/test/resources/propertyOptions.properties", propertyKey);
-        actualListOfOptions = startedPageService.getListOfFooterOptionsByName(columnName);
-        assertThat("Lists of footer options are not equal", actualListOfOptions, Matchers.equalTo(expectedListOfOptions));
+        actualListOfOptions = startedPageService.getListOfContentTabNames();
+        assertThat("Lists of button names are not equal", actualListOfOptions, Matchers.equalTo(expectedListOfOptions));
     }
 }

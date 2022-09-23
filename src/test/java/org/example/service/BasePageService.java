@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.pages.BasePage;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class BasePageService {
@@ -30,5 +31,16 @@ public class BasePageService {
     public String getLanguageFromPageText() {
         log.info("Get actual language from page");
         return basePage.getLanguageFromPageText();
+    }
+
+    public List<String> getListOfContentTabNames() {
+        List<String> listOfNames = basePage.getListOfContentTabNames();
+        log.info("Get actual list of names - " + listOfNames);
+        return listOfNames;
+    }
+
+    public void clickOnCustomerServiceButton() {
+        log.info("Click on 'Customer Service' button");
+        basePage.clickOnCustomerServiceButton();
     }
 }
