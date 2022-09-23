@@ -63,20 +63,16 @@ public class CustomerService extends BasePageService {
     }
 
     public List<String> getListOfHelpTopics() {
-        List<String> list = customerServicePage.getListOfTopics();
-        log.info("Get list of all help topics - " + list);
-        return list;
+        return customerServicePage.getListOfTopics();
     }
 
     public boolean isHelpTopicHasAdditionalCardWithInformation() {
         boolean result = false;
-        int n = 0;
-        int k = 0;
         for (int i = 0; i < getListOfHelpTopics().size(); i++) {
             customerServicePage.listOfHelpTopics().get(i).click();
             log.info("Click on element " + "'" + customerServicePage.listOfHelpTopics().get(i).getText() + "'");
             result = !customerServicePage.listOfCardHelpInformation().isEmpty();
-            log.info("Set of cards has info cards - " + result + " " + ++k);
+            log.info("'" + customerServicePage.listOfHelpTopics().get(i).getText() + "' - " + " has set of info cards - " + result);
         }
         log.info("Is help topics have additional cards with information - " + result);
         return result;
