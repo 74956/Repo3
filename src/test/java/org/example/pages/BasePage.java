@@ -57,20 +57,20 @@ public class BasePage {
 
     public void switchLanguage(String lang) {
         Actions actions = new Actions(driver);
-        waiters.fluentWaitVisibilityOfElement(navigateOnLangSwitcher());
+        waiters.waitForVisibilityOfElement(navigateOnLangSwitcher());
         actions.moveToElement(navigateOnLangSwitcher()).build().perform();
-        waiters.fluentWaitVisibilityOfElement(getLangDropDown());
+        waiters.waitForVisibilityOfElement(getLangDropDown());
         WebElement el = driver.findElement(By.xpath(String.format("//a[contains(@href,'%s')]//i", lang)));
         actions.click(el).build().perform();
     }
 
     public String getLanguageFromPageText() {
-        waiters.fluentWaitElementInvisible(getLangDropDown());
+        waiters.waitForInvisibilityOfElement(getLangDropDown());
         return getLanguageFromPage().getAttribute("lang");
     }
 
     public List<String> getListOfContentTabNames() {
-        return CommonMethodsForList.getItemsNamesText(getShopContainerNames());
+        return CommonMethodsForList.getTextFromElements(getShopContainerNames());
     }
 
     public void clickOnCustomerServiceButton() {

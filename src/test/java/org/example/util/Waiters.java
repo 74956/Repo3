@@ -20,12 +20,12 @@ public class Waiters {
         this.driver = Driver.getDriver();
     }
 
-    public List<WebElement> elementsToBeVisible(List<WebElement> list) {
+    public List<WebElement> waitForVisibilityOfElements(List<WebElement> list) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         return wait.until(ExpectedConditions.visibilityOfAllElements(list));
     }
 
-    public WebElement fluentWaitVisibilityOfElement(WebElement element) {
+    public WebElement waitForVisibilityOfElement(WebElement element) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(6))
                 .pollingEvery(Duration.ofSeconds(2))
@@ -33,7 +33,7 @@ public class Waiters {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public Boolean fluentWaitElementInvisible(WebElement element) {
+    public Boolean waitForInvisibilityOfElement(WebElement element) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(6))
                 .pollingEvery(Duration.ofSeconds(2))

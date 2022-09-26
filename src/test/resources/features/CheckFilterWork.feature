@@ -4,7 +4,6 @@ Feature: Want to check filter in result page and if cart is empty in the beginni
   Background:
     Given I log in
     When I search for "iphone"
-    When I click search button
 
   Scenario: check products
     And I see the list of elements is not empty
@@ -14,6 +13,3 @@ Feature: Want to check filter in result page and if cart is empty in the beginni
     And I see the "See more" button
     And I see the list of options name
     And I check the filter of OS with value "iOS" and check name contains "iPhone"
-
-
-

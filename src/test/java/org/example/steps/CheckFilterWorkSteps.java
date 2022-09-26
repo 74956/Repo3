@@ -66,14 +66,15 @@ public class CheckFilterWorkSteps {
                 OptionName.CELL_PHONE_CARRIER.getOptionName(), OptionName.ELECTRONICS_DEVICE_MODEL_YEAR.getOptionName(),
                 OptionName.PHONE_COLOR.getOptionName(), OptionName.CELL_PHONE_INTERNAL_STORAGE_MEMORY.getOptionName(),
                 OptionName.CELL_PHONE_DISPLAY_SIZE.getOptionName(), OptionName.CELL_PHONE_ASPECT_RATIO.getOptionName(),
-                OptionName.CELLULAR_TECHNOLOGY.getOptionName(), OptionName.CELL_PHONE_OPERATION_SYSTEM.getOptionName(),
-                OptionName.CELLULAR_PHONE_FORM_FACTOR.getOptionName(), OptionName.CELLULAR_PHONE_SIM_CARD_SIZE.getOptionName(),
-                OptionName.CELL_PHONE_CONNECTIVITY_TECHNOLOGY.getOptionName(), OptionName.CELL_PHONE_FEATURES.getOptionName(),
-                OptionName.CELL_PHONE_DISPLAY_TYPE.getOptionName(), OptionName.CELL_PHONE_CAMERA_RESOLUTION.getOptionName(),
-                OptionName.CELL_PHONE_SHOOTING_MODES.getOptionName(), OptionName.CELLULAR_PHONE_BIOMETRIC_SECURITY_FEATURE.getOptionName(),
-                OptionName.CELL_PHONE_HUMAN_INTERFACE_INPUT.getOptionName(), OptionName.CELLULAR_PHONE_SIM_CARD_SLOT_COUNT.getOptionName(),
-                OptionName.CELL_PHONE_CONNECTOR_TYPE.getOptionName(), OptionName.CELL_PHONE_RESOLUTION.getOptionName(),
-                OptionName.WATER_RESISTANCE_LEVEL.getOptionName(), "Cellular Phone Video Capture Resolution", OptionName.AVAILABILITY.getOptionName());
+                OptionName.CELL_PHONE_OPERATION_SYSTEM.getOptionName(), OptionName.CELLULAR_PHONE_FORM_FACTOR.getOptionName(),
+                OptionName.CELLULAR_PHONE_SIM_CARD_SIZE.getOptionName(), OptionName.CELL_PHONE_CONNECTIVITY_TECHNOLOGY.getOptionName(),
+                OptionName.CELL_PHONE_FEATURES.getOptionName(), OptionName.CELL_PHONE_DISPLAY_TYPE.getOptionName(),
+                OptionName.CELL_PHONE_CAMERA_RESOLUTION.getOptionName(), OptionName.CELL_PHONE_SHOOTING_MODES.getOptionName(),
+                OptionName.CELLULAR_PHONE_BIOMETRIC_SECURITY_FEATURE.getOptionName(), OptionName.CELL_PHONE_HUMAN_INTERFACE_INPUT.getOptionName(),
+                OptionName.CELLULAR_PHONE_SIM_CARD_SLOT_COUNT.getOptionName(), OptionName.CELL_PHONE_CONNECTOR_TYPE.getOptionName(),
+                OptionName.CELL_PHONE_RESOLUTION.getOptionName(), OptionName.WATER_RESISTANCE_LEVEL.getOptionName(),
+                OptionName.CELLULAR_PHONE_VIDEO_CAPTURE_RESOLUTION.getOptionName(), OptionName.CELLULAR_PHONE_AVERAGE_LIFE.getOptionName(),
+                OptionName.CELLULAR_PHONE_CELLULAR_TECHNOLOGY.getOptionName(), OptionName.FROM_OUR_BRANDS.getOptionName(), OptionName.AVAILABILITY.getOptionName());
         assertThat("Check the names of filter options ", actualListOfOptionsNames, Matchers.equalTo(expectedListOfOptionsNames));
     }
 }

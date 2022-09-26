@@ -78,7 +78,7 @@ public class CustomerServicePage extends BasePage {
     }
 
     public List<String> getListOfCardText() {
-        return CommonMethodsForList.getItemsNamesText(getCardText());
+        return CommonMethodsForList.getTextFromElements(getCardText());
     }
 
     public boolean isSearchFieldDisplayed() {
@@ -94,7 +94,7 @@ public class CustomerServicePage extends BasePage {
     }
 
     public List<String> getListOfTopics() {
-        return CommonMethodsForList.getItemsNamesText(getListOfHelpTopics());
+        return CommonMethodsForList.getTextFromElements(getListOfHelpTopics());
     }
 
     public List<WebElement> listOfHelpTopics() {

@@ -22,20 +22,12 @@ public class AddItemToCartSteps {
     @When("I search for {string}")
     public void searchProduct(String product) {
         startedPageService.fillSearchField(product);
-    }
-
-    @When("I click search button")
-    public void clickOnSearchButton() {
         resultPageService.clickOnSearchButton();
     }
 
-    @When("I click on the first phone that appears in the search result")
-    public void clickOnTheFirstPhoneThatAppearsInTheSearchResult() {
+    @Then("I add the first product to the cart")
+    public void clickOnTheFirstPhone() {
         resultPageService.clickOnFirstElementInListOfItems();
-    }
-
-    @When("I click on Add to cart button")
-    public void clickOnAddToCartButton() {
         productPageService.clickAddCartButton();
     }
 

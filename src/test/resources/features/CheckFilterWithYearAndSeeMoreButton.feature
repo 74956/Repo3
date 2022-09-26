@@ -4,7 +4,6 @@ Feature: check year filter and See more button
   Background:
     Given I log in
     When I search for "iphone"
-    When I click search button
     And I see the list of elements is not empty
     And I see the cart has 0 items inside
     And I click on filter "Price: High to Low"

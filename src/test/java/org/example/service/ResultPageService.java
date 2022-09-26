@@ -68,7 +68,7 @@ public class ResultPageService extends BasePageService {
 
     public List<String> getListOfItemsNames() {
         List<String> listOfItemsName = resultPage.getListOfItemsNames();
-        log.info("List of items name - " + listOfItemsName);
+        log.info("List of items name - " + listOfItemsName.size() + " " + listOfItemsName);
         return listOfItemsName;
     }
 

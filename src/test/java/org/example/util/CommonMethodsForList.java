@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class CommonMethodsForList {
 
-    public static List<String> getItemsNamesText(List<WebElement> list) {
+    public static List<String> getTextFromElements(List<WebElement> list) {
         return list.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
@@ -18,21 +18,18 @@ public class CommonMethodsForList {
     }
 
     public static List<Integer> convertElementsIntoInteger(List<WebElement> list) {
-        int n = 0;
-        int b = 0;
+        int b;
         List<Integer> newList = new ArrayList<>();
-        List<String> listOfText = getItemsNamesText(list);
+        List<String> listOfText = getTextFromElements(list);
         for (String s : listOfText) {
-            do {
-                if (s.contains(",")) {
-                    String str = s.replace(",", "");
-                    b = Integer.parseInt(str);
-                    newList.add(b);
-                } else {
-                    newList.add(b);
-                }
-                n++;
-            } while (n < listOfText.size());
+            if (s.contains(",")) {
+                String str = s.replace(",", "");
+                b = Integer.parseInt(str);
+                newList.add(b);
+            } else {
+                b = Integer.parseInt(s);
+                newList.add(b);
+            }
         }
         return newList;
     }
@@ -43,11 +40,10 @@ public class CommonMethodsForList {
     }
 
     public static boolean isListContainsString(List<String> list, String str) {
+        boolean result = false;
         for (String s : list) {
-            if (s.contains(str)) {
-                return true;
-            }
+            result = s.contains(str);
         }
-        return false;
+        return result;
     }
 }

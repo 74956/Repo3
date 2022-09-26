@@ -34,8 +34,11 @@ public enum OptionName {
     CELL_PHONE_CONNECTOR_TYPE("Cell Phone Connector Type"),
     CELL_PHONE_RESOLUTION("Cell Phone Resolution"),
     WATER_RESISTANCE_LEVEL("Water Resistance Level"),
-    AVAILABILITY("Availability");
+    AVAILABILITY("Availability"),
+    CELLULAR_PHONE_VIDEO_CAPTURE_RESOLUTION("Cellular Phone Video Capture Resolution"),
+    CELLULAR_PHONE_AVERAGE_LIFE("Cellular Phone Average Life"),
+    CELLULAR_PHONE_CELLULAR_TECHNOLOGY("Cellular Phone Cellular Technology"),
+    FROM_OUR_BRANDS("From Our Brands");
 
     private final String optionName;
-
 }

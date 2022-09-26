@@ -22,7 +22,7 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public WebElement getItemsName() {
-        return waiters.fluentWaitVisibilityOfElement(driver.findElement(By.xpath("//div//span[@class='a-truncate-cut']")));
+        return waiters.waitForVisibilityOfElement(driver.findElement(By.xpath("//div//span[@class='a-truncate-cut']")));
     }
 
     public WebElement getItemsPrice() {
@@ -34,11 +34,11 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public String getShoppingCartNameText() {
-        return waiters.fluentWaitVisibilityOfElement(getShoppingCartText()).getText();
+        return waiters.waitForVisibilityOfElement(getShoppingCartText()).getText();
     }
 
     public boolean isListOfElementsInTheShoppingCartEmpty() {
-        waiters.elementsToBeVisible(getListOfElementsInTheShoppingCart());
+        waiters.waitForVisibilityOfElements(getListOfElementsInTheShoppingCart());
         return getListOfElementsInTheShoppingCart().isEmpty();
     }
 

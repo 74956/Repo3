@@ -3,7 +3,6 @@ package org.example.pages;
 import org.example.util.CommonMethodsForList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class ResultPage extends BasePage {
     }
 
     public List<String> getListOfItemsNamesText() {
-        return CommonMethodsForList.getItemsNamesText(getListOfItems());
+        return CommonMethodsForList.getTextFromElements(getListOfItems());
     }
 
     public void clickOnFirstElementInListOfItems() {
@@ -58,7 +57,7 @@ public class ResultPage extends BasePage {
         if (getSearchButton().isDisplayed()) {
             getSearchButton().click();
         } else {
-            waiters.fluentWaitVisibilityOfElement(getSearchButton());
+            waiters.waitForVisibilityOfElement(getSearchButton());
             getSearchButton().click();
         }
     }
@@ -71,6 +70,7 @@ public class ResultPage extends BasePage {
     public void clickOnDropdownWithFilter(String fieldText) {
         String choseFilterOption = "//div[@data-action='a-popover-a11y']//ul[@class='a-nostyle a-list-link']/li/a[text()='%s']";
         driver.findElement(By.xpath(String.format(choseFilterOption, fieldText))).click();
+        waiters.waitForVisibilityOfElements(getProductPrice());
     }
 
     public List<Integer> getListOfProductPrices() {
@@ -78,7 +78,7 @@ public class ResultPage extends BasePage {
     }
 
     public List<String> getListOfOptionsNameFromFilter() {
-        return CommonMethodsForList.getItemsNamesText(getOptionsNameFromFilter());
+        return CommonMethodsForList.getTextFromElements(getOptionsNameFromFilter());
     }
 
     public void clickOnRandomColor() {
@@ -87,12 +87,12 @@ public class ResultPage extends BasePage {
     }
 
     public boolean isButtonDisplayedInTheYearFilter(String str) {
-        List<String> collectionOfElementsOfYearFilter = CommonMethodsForList.getItemsNamesText(getListOfYearsInFilter());
+        List<String> collectionOfElementsOfYearFilter = CommonMethodsForList.getTextFromElements(getListOfYearsInFilter());
         return CommonMethodsForList.isListContainsString(collectionOfElementsOfYearFilter, str);
     }
 
     public List<String> getListOfItemsNames() {
-        return CommonMethodsForList.getItemsNamesText(getListOfItemsName());
+        return CommonMethodsForList.getTextFromElements(getListOfItemsName());
     }
 
     public void clickOnDropdownPriceFilter() {

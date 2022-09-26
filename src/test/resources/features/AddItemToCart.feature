@@ -6,9 +6,7 @@ Feature: I want to check adding product to shopping cart
 
   Scenario: check product image
     When I search for "iphone"
-    When I click search button
-    And I click on the first phone that appears in the search result
-    And I click on Add to cart button
+    Then I add the first product to the cart
     Then I see the product image
     Then I see the msg "Added to Cart"
     Then I see the color of added icon is "rgba(6, 125, 98, 1)"

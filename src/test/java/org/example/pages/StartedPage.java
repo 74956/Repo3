@@ -36,7 +36,7 @@ public class StartedPage extends BasePage {
     }
 
     public void clickOnSignInMenu() {
-        waiters.fluentWaitVisibilityOfElement(getSignInMenu()).click();
+        waiters.waitForVisibilityOfElement(getSignInMenu()).click();
     }
 
     public String getAccountGreetingText() {
@@ -54,7 +54,7 @@ public class StartedPage extends BasePage {
     }
 
     public List<String> getListOfFooterOptionsByName(String columnName) {
-        List<String> list = CommonMethodsForList.getItemsNamesText(getFooterOptionsByMainName(columnName));
+        List<String> list = CommonMethodsForList.getTextFromElements(getFooterOptionsByMainName(columnName));
         return list.stream().map(el -> el.replaceAll("›", "")).collect(Collectors.toList());
     }
 }

@@ -40,7 +40,7 @@ public class CartPage extends BasePage {
             getGoToCartButton().click();
         } else {
             driver.navigate().refresh();
-            waiters.fluentWaitVisibilityOfElement(getGoToCartButton()).click();
+            waiters.waitForVisibilityOfElement(getGoToCartButton()).click();
         }
     }
 }
