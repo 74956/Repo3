@@ -18,16 +18,15 @@ public class CommonMethodsForList {
     }
 
     public static List<Integer> convertElementsIntoInteger(List<WebElement> list) {
+        String str = null;
         int b;
         List<Integer> newList = new ArrayList<>();
         List<String> listOfText = getTextFromElements(list);
         for (String s : listOfText) {
             if (s.contains(",")) {
-                String str = s.replace(",", "");
-                b = Integer.parseInt(str);
-                newList.add(b);
+                str = s.replace(",", "");
             } else {
-                b = Integer.parseInt(s);
+                b = Integer.parseInt(str);
                 newList.add(b);
             }
         }

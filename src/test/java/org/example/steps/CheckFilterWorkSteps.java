@@ -74,7 +74,7 @@ public class CheckFilterWorkSteps {
                 OptionName.CELLULAR_PHONE_SIM_CARD_SLOT_COUNT.getOptionName(), OptionName.CELL_PHONE_CONNECTOR_TYPE.getOptionName(),
                 OptionName.CELL_PHONE_RESOLUTION.getOptionName(), OptionName.WATER_RESISTANCE_LEVEL.getOptionName(),
                 OptionName.CELLULAR_PHONE_VIDEO_CAPTURE_RESOLUTION.getOptionName(), OptionName.CELLULAR_PHONE_AVERAGE_LIFE.getOptionName(),
-                OptionName.CELLULAR_PHONE_CELLULAR_TECHNOLOGY.getOptionName(), OptionName.FROM_OUR_BRANDS.getOptionName(), OptionName.AVAILABILITY.getOptionName());
+                OptionName.CELLULAR_PHONE_CELLULAR_TECHNOLOGY.getOptionName(), "Prime Exclusive Cell Phones", OptionName.AVAILABILITY.getOptionName());
         assertThat("Check the names of filter options ", actualListOfOptionsNames, Matchers.equalTo(expectedListOfOptionsNames));
     }
 }
