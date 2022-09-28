@@ -3,6 +3,7 @@ package org.example.pages;
 import org.example.util.CommonMethodsForList;
 import org.example.util.GetProperties;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -35,6 +36,10 @@ public class StartedPage extends BasePage {
         return driver.findElements(By.xpath(String.format("//div[@class='navFooterColHead' and text()='%s']/parent::div/ul/li", mainName)));
     }
 
+    public WebElement getAboutAmazonButton() {
+        return driver.findElement(By.xpath("(//a[contains(@href,'utm_medium=footer')])[2]"));
+    }
+
     public void clickOnSignInMenu() {
         waiters.waitForVisibilityOfElement(getSignInMenu()).click();
     }
@@ -56,5 +61,11 @@ public class StartedPage extends BasePage {
     public List<String> getListOfFooterOptionsByName(String columnName) {
         List<String> list = CommonMethodsForList.getTextFromElements(getFooterOptionsByMainName(columnName));
         return list.stream().map(el -> el.replaceAll("›", "")).collect(Collectors.toList());
+    }
+
+    public void clickOnAboutAmazonButton() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(184, 3983)", getAboutAmazonButton());
+        getAboutAmazonButton().click();
     }
 }

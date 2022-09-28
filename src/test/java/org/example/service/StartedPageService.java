@@ -43,4 +43,9 @@ public class StartedPageService extends BasePageService {
         log.info("Get option names - " + options);
         return options;
     }
+
+    public void clickOnAboutAmazonButton() {
+        log.info("Click on 'About Amazon' button");
+        startedPage.clickOnAboutAmazonButton();
+    }
 }
